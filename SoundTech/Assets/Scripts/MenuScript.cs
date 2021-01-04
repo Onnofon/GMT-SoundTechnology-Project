@@ -138,7 +138,7 @@ public class MenuScript : MonoBehaviour {
                     else
                     {
                         state = "endQ";
-                        SceneManager.LoadScene("question");
+                        SceneManager.LoadScene("exit");
                     }
                 }
                 else
