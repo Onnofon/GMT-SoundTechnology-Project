@@ -28,14 +28,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class exit : MonoBehaviour {
     
     private string soundModeString = Log.CurrentMode.ToString();
+    public TextMeshProUGUI highscoretext;
 
     // Upon entering the exit scene, the log is sent to the webserver
     public void Start () {
         StartCoroutine(SendLog());
+        if (Log.totalScore > Log.HighScore)
+        {
+            Log.HighScore = Log.totalScore;
+        }
+        highscoretext.text = "High score: " + Log.HighScore + "\r\nLast score: " + Log.totalScore;
     }
 
     IEnumerator SendLog()
